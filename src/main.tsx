@@ -10,7 +10,7 @@ import Plausible from "plausible-tracker";
 import Header from "./Header/Header.tsx";
 import Footer from "./Footer/Footer.tsx";
 const plausible = Plausible({
-  domain: "spyfall.verybadfrags.com",
+  domain: "spyfall..com",
   apiHost: "/ps",
   hashMode: false,
 });

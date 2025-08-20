@@ -13,6 +13,7 @@ import {
   faHandPointRight,
   faUserSecret,
 } from "@fortawesome/free-solid-svg-icons";
+
 library.add(
   faEye,
   faHandPointRight,
@@ -22,15 +23,10 @@ library.add(
   faUserSecret,
   faUsers,
 );
+
 const eyeIcon = icon({ prefix: "fas", iconName: faEye.iconName });
-const handRightIcon = icon({
-  prefix: "fas",
-  iconName: faHandPointRight.iconName,
-});
-const hourglassIcon = icon({
-  prefix: "fas",
-  iconName: faHourglassEnd.iconName,
-});
+const handRightIcon = icon({ prefix: "fas", iconName: faHandPointRight.iconName });
+const hourglassIcon = icon({ prefix: "fas", iconName: faHourglassEnd.iconName });
 const mobileIcon = icon({ prefix: "fas", iconName: faMobileAlt.iconName });
 const spyIcon = icon({ prefix: "fas", iconName: faUserSecret.iconName });
 const stopwatchIcon = icon({ prefix: "fas", iconName: faStopwatch.iconName });
@@ -40,17 +36,17 @@ export default function Rules() {
   const [showRules, setShowRules] = useState(false);
 
   return (
-    <Card header="📚 Rules">
-      <div className="d-grid">
-        <button
-          className="btn btn-outline-primary"
-          onClick={() => setShowRules(!showRules)}
-        >
-          {Parser(eyeIcon.html.toString())} Show/Hide
-        </button>
-        <RulesDetails showRules={showRules} />
-      </div>
+    <div style ={{ minWidth: "600px" }}>
+    <Card header="📖 Mission Briefing">
+      <button
+        className="btn btn-outline-primary"
+        onClick={() => setShowRules(!showRules)}
+      >
+        {Parser(eyeIcon.html.toString())} {showRules ? "Hide" : "Show"} Rules
+      </button>
+      <RulesDetails showRules={showRules} />
     </Card>
+    </div>
   );
 }
 
@@ -58,58 +54,53 @@ interface RulesDetailsProps {
   showRules: boolean;
 }
 
-function RulesDetails(props: RulesDetailsProps) {
-  if (props.showRules) {
-    return (
-      <div>
-        <ul className="mt-3">
-          <li>{Parser(usersIcon.html.toString())} 3-10 Players</li>
-          <li>{Parser(stopwatchIcon.html.toString())} 5 Minutes Rounds</li>
-          <li>{Parser(mobileIcon.html.toString())} 1 Device per player</li>
-          <li>
-            {Parser(spyIcon.html.toString())} There is a 1/1000 chance that
-            every player is a spy!
-          </li>
-        </ul>
-        <hr />
-        <ul>
-          <li>All players are in the same location</li>
-          <li>The spy has to guess the current location</li>
-          <li>The other players have to guess who the spy is</li>
-          <li>
-            The first player picks another person and asks them a question about
-            the location (Do people wear a uniform? Is there a specific color in
-            this place? ...)
-          </li>
-          <li>
-            The player who just answered the question asks the next question to
-            another person
-          </li>
-        </ul>
-        <h6>{Parser(hourglassIcon.html.toString())} When the timer ends</h6>
-        <ul>
-          <li>
-            Players vote to designate the spy
-            <ul>
-              <li>
-                If the players have voted for the spy, the spy has one chance to
-                guess the location and win the game
-              </li>
-              <li>If the players have voted for an innocent, the spy wins</li>
-            </ul>
-          </li>
-        </ul>
-        <h6>{Parser(handRightIcon.html.toString())} At any time</h6>
-        <ul>
-          <li>The players can vote for a spy if they have a majority</li>
-          <li>
-            The spy can guess the location. The spy wins the game if he guessed
-            correctly, or loses otherwise
-          </li>
-        </ul>
-      </div>
-    );
-  } else {
-    return null;
-  }
+function RulesDetails({ showRules }: RulesDetailsProps) {
+  if (!showRules) return null;
+
+  return (
+    <>
+      <ul className="mt-3">
+        <li>{Parser(usersIcon.html.toString())} Up to 20 players (1–2 spies)</li>
+        <li>{Parser(stopwatchIcon.html.toString())} Round time: 10 minutes</li>
+        <li>{Parser(mobileIcon.html.toString())} Wheel of Names picks the first asker (screen-shared)</li>
+        <li>{Parser(spyIcon.html.toString())} Spies don’t know the location</li>
+      </ul>
+
+      <hr />
+
+      <h6>🌀 The Beginning</h6>
+      <ul>
+        <li>Spin the Wheel of Names. The chosen player asks the first question to anyone.</li>
+        <li>After that, turns go in a simple circle: the person who answered now asks the next player.</li>
+        <li>No skipping until everyone has had one turn.</li>
+      </ul>
+
+      <h6>❓ Talking Rules</h6>
+      <ul>
+        <li>Ask in ≤ 10 seconds. Answer in ≤ 7 seconds.</li>
+        <li>Non-spies: give gentle hints without saying the location.</li>
+        <li>Spies: blend in and listen carefully.</li>
+      </ul>
+
+      <h6>🚨 Accusations</h6>
+      <ul>
+        <li>Anyone can say “I accuse!” instead of asking/answering.</li>
+        <li>You need 2 supporters to start a vote.</li>
+        <li>Everyone except the accused votes. Majority = conviction.</li>
+        <li>If the accused is a spy → non-spies win (unless the spy immediately guesses the location correctly).</li>
+        <li>If the accused is innocent → spies win instantly.</li>
+      </ul>
+
+      <h6>{Parser(hourglassIcon.html.toString())} When the Timer Ends</h6>
+      <ul>
+        <li>Time up? Spies win—unless a final 1-minute accusation passes.</li>
+      </ul>
+
+      <h6>{Parser(handRightIcon.html.toString())} Spy’s Special Move</h6>
+      <ul>
+        <li>At any time, a spy may reveal and guess the location.</li>
+        <li>Right guess → spies win. Wrong guess → non-spies win.</li>
+      </ul>
+    </>
+  );
 }

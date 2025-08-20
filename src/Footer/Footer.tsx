@@ -21,7 +21,7 @@ const Footer = memo(function Footer() {
           <div className="row row-cols-1 row-cols-lg-2 gy-2">
             <div className="lead fs-6">
               <a
-                href="https://github.com/VeryBadFrags/spyfall/issues"
+                href="https://github.com//spyfall/issues"
                 target="_blank"
                 className="link-dark icon-link link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
               >
@@ -30,7 +30,7 @@ const Footer = memo(function Footer() {
             </div>
             <div className="lead fs-6">
               <a
-                href="https://github.com/VeryBadFrags/spyfall"
+                href="https://github.com//spyfall"
                 target="_blank"
                 className="link-dark icon-link link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
               >
@@ -39,7 +39,7 @@ const Footer = memo(function Footer() {
             </div>
             <div className="lead fs-6">
               <a
-                href="https://www.buymeacoffee.com/verybadfrags"
+                href="https://www.buymeacoffee.com/"
                 target="_blank"
               >
                 <img
