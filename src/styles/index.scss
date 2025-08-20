@@ -1,0 +1,37 @@
+@import "bootstrap";
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+
+  background-color: $overlay0;
+  //background-image: linear-gradient(to bottom, $teal 20%, $base 100%);
+  //background-size: cover;
+  //background-repeat: no-repeat;
+}
+
+.clickable {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.clickable:hover {
+  text-decoration: underline;
+}
+
+.strike {
+  text-decoration: line-through !important;
+  opacity: 0.6 !important;
+}
+
+.card {
+  background-color: $mantle;
+}
+
+.card-header {
+  background-color: $crust;
+}

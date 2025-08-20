@@ -1,0 +1,44 @@
+{
+  "name": "spyfall-client",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "clean": "rm -rf build/"
+  },
+  "dependencies": {
+    "@catppuccin/palette": "^1.2.0",
+    "@fontsource/atkinson-hyperlegible": "^5.0.20",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@popperjs/core": "^2.11.8",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "bootstrap": "^5.3.3",
+    "html-react-parser": "^5.1.10",
+    "plausible-tracker": "^0.3.8",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "sass": "^1.77.2",
+    "socket.io-client": "^4.8.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.4.10"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
+    "prettier": "^3.2.5",
+    "typescript-eslint": "^8.35.1"
+  }
+}

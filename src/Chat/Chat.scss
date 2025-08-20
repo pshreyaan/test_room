@@ -1,0 +1,10 @@
+@import "../styles/catppuccin";
+
+.chat-box {
+  background-color: $base !important;
+  min-height: 14em;
+}
+
+.chat-box > .list-group > .list-group-item {
+  background-color: $base !important;
+}
